@@ -7,7 +7,7 @@
 <body>
 <h1>Edit blog</h1>
 <p>
-    <a href="/customers">Blog list</a>
+    <a href="/blogs">Blog list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
@@ -26,6 +26,17 @@
         <tr>
             <td>Content:</td>
             <td><input type="text" th:field="*{content}"/></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <select name="category">
+                    <option th:each="p : ${categories}"
+                            th:value="${p.id}"
+                            th:text="${p.name}"
+                            th:selected="(${p.id} == *{category.id})"></option>
+                </select>
+            </td>
         </tr>
         <tr>
             <td></td>

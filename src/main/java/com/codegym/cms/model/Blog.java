@@ -13,6 +13,18 @@ public class Blog {
     private String tag;
     private String content;
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private Category category;
+
     public Blog(){}
 
     public Blog(String author,String tag,String content){
